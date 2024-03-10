@@ -15,7 +15,7 @@ namespace NTwain
 {
     // for internal pieces since the main twain session file is getting too long
 
-    partial class TwainSession : ITwainSessionInternal, IWinMessageFilter
+    partial class TwainSession : ITwainSessionInternal, MessageLoopHook.IWinMessageFilter
     {
         #region ITwainSessionInternal Members
 

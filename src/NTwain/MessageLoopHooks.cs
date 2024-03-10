@@ -11,11 +11,11 @@ namespace NTwain
     /// </summary>
     public abstract class MessageLoopHook
     {
-        internal IntPtr Handle { get; set; }
-        internal SynchronizationContext SyncContext { get; set; }
+        protected internal IntPtr Handle { get; set; }
+        protected internal SynchronizationContext SyncContext { get; set; }
 
-        internal abstract void Start(IWinMessageFilter filter);
-        internal abstract void Stop();
+        protected internal abstract void Start(IWinMessageFilter filter);
+        protected internal abstract void Stop();
 
         /// <summary>
         /// Asynchronously invokes the specified action on the message loop thread.
@@ -82,6 +82,22 @@ namespace NTwain
         }
 
         internal virtual string InvalidMessage { get { return string.Empty; } }
+
+        /// <summary>
+        /// Interface for something that can check whether messages from WndProc is a TWAIN message and already handled.
+        /// </summary>
+        protected internal interface IWinMessageFilter
+        {
+            /// <summary>
+            /// Checks and handle the message if it's a TWAIN message.
+            /// </summary>
+            /// <param name="hwnd">The window handle.</param>
+            /// <param name="msg">The message.</param>
+            /// <param name="wParam">The w parameter.</param>
+            /// <param name="lParam">The l parameter.</param>
+            /// <returns>true if handled internally.</returns>
+            bool IsTwainMessage(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam);
+        }
     }
 
     /// <summary>
@@ -120,7 +136,7 @@ namespace NTwain
             }
         }
 
-        internal override void Start(IWinMessageFilter filter)
+        protected internal override void Start(IWinMessageFilter filter)
         {
             //Invoke(() =>
             //{
@@ -129,7 +145,7 @@ namespace NTwain
             //});
         }
 
-        internal override void Stop()
+        protected internal override void Stop()
         {
             //Invoke(() =>
             //{
@@ -191,7 +207,7 @@ namespace NTwain
             }
         }
 
-        internal override void Start(IWinMessageFilter filter)
+        protected internal override void Start(IWinMessageFilter filter)
         {
             _filter = filter;
             _hooker = HwndSource.FromHwnd(Handle);
@@ -207,7 +223,7 @@ namespace NTwain
             return IntPtr.Zero;
         }
 
-        internal override void Stop()
+        protected internal override void Stop()
         {
             if (_hooker != null)
             {

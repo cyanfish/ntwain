@@ -18,14 +18,14 @@ namespace NTwain.Internals
         Dispatcher _dispatcher;
         WindowsHook _hook;
 
-        internal override void Stop()
+        protected internal override void Stop()
         {
             if (_dispatcher != null)
             {
                 _dispatcher.InvokeShutdown();
             }
         }
-        internal override void Start(IWinMessageFilter filter)
+        protected internal override void Start(IWinMessageFilter filter)
         {
             if (_dispatcher == null)
             {

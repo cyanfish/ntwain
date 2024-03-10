@@ -14,9 +14,9 @@ namespace NTwain.Internals
     class WindowsHook : IDisposable
     {
         IDisposable _win;
-        IWinMessageFilter _filter;
+        MessageLoopHook.IWinMessageFilter _filter;
 
-        public WindowsHook(IWinMessageFilter filter)
+        public WindowsHook(MessageLoopHook.IWinMessageFilter filter)
         {
             _filter = filter;
 
