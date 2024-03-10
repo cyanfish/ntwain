@@ -1,15 +1,10 @@
 ﻿using NTwain.Data;
 using NTwain.Internals;
-using NTwain.Interop;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Permissions;
 
 namespace NTwain
 {

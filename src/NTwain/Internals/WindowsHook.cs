@@ -1,4 +1,5 @@
-﻿using NTwain.Interop;
+﻿#if WINDOWS || NETFRAMEWORK
+using NTwain.Interop;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -73,3 +74,4 @@ namespace NTwain.Internals
         #endregion
     }
 }
+#endif

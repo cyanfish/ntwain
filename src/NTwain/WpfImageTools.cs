@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#if WINDOWS || NETFRAMEWORK
+using System.IO;
 using System.Windows.Media.Imaging;
 
 namespace NTwain
@@ -89,3 +90,4 @@ namespace NTwain
         //}
     }
 }
+#endif

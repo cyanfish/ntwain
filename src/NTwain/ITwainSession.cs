@@ -14,7 +14,6 @@ namespace NTwain
     /// </summary>
     public interface ITwainSession : IEnumerable<DataSource>, INotifyPropertyChanged
     {
-
         /// <summary>
         /// [Experimental] Gets or sets the optional synchronization context when not specifying a <see cref="MessageLoopHook"/> on <see cref="Open()"/>.
         /// This allows events to be raised on the thread associated with the context. This is experimental is not recommended for use.
@@ -110,7 +109,7 @@ namespace NTwain
         /// <returns></returns>
         DataSource ShowSourceSelector();
 
-
+#if WINDOWS || NETFRAMEWORK
         /// <summary>
         /// Opens the data source manager. This must be the first method used
         /// before using other TWAIN functions. Calls to this must be followed by 
@@ -118,6 +117,7 @@ namespace NTwain
         /// </summary>
         /// <returns></returns>
         ReturnCode Open();
+#endif
 
         /// <summary>
         /// Opens the data source manager. This must be the first method used

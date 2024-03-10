@@ -231,6 +231,7 @@ namespace NTwain
         /// </value>
         public Message DisableReason { get; private set; }
 
+#if WINDOWS || NETFRAMEWORK
         /// <summary>
         /// Opens the data source manager. This must be the first method used
         /// before using other TWAIN functions. Calls to this must be followed by
@@ -241,6 +242,7 @@ namespace NTwain
         {
             return Open(new InternalMessageLoopHook());
         }
+#endif
 
         /// <summary>
         /// Opens the data source manager. This must be the first method used

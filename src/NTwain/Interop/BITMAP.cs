@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+#if WINDOWS || NETFRAMEWORK
 using System.Drawing;
 using System.Drawing.Imaging;
+#endif
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -194,7 +196,7 @@ namespace NTwain.Interop
             }
         }
 
-
+#if WINDOWS || NETFRAMEWORK
         /// <summary>
         /// Gets the System.Drawing pixel format of current structure.
         /// </summary>
@@ -257,6 +259,7 @@ namespace NTwain.Interop
             }
             return null;
         }
+#endif
 
         /// <summary>
         /// Gets the stride size of this bitmap.

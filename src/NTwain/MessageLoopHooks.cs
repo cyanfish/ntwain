@@ -2,7 +2,9 @@
 using System;
 using System.Reflection;
 using System.Threading;
+#if WINDOWS || NETFRAMEWORK
 using System.Windows.Interop;
+#endif
 
 namespace NTwain
 {
@@ -100,6 +102,7 @@ namespace NTwain
         }
     }
 
+#if WINDOWS || NETFRAMEWORK
     /// <summary>
     /// A <see cref="MessageLoopHook"/> for use in winform applications.
     /// </summary>
@@ -234,4 +237,5 @@ namespace NTwain
             }
         }
     }
+#endif
 }

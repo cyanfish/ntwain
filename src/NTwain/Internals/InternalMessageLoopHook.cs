@@ -1,4 +1,5 @@
-﻿using NTwain.Properties;
+﻿#if WINDOWS || NETFRAMEWORK
+using NTwain.Properties;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -112,3 +113,4 @@ namespace NTwain.Internals
         }
     }
 }
+#endif
