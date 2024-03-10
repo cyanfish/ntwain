@@ -132,7 +132,7 @@ namespace NTwain
                             ExpectedDsmPath = oldDsmPath;
                             IsSupported = DsmExists = File.Exists(ExpectedDsmPath);
                             UseNewWinDSM = false;
-                            Log.Debug("Using old dsm in windows.");
+                            Log.Debug("Using old dsm in windows. not " + newDsmPath);
                         }
                     }
                 }
@@ -194,6 +194,18 @@ namespace NTwain
         /// The expected DSM path.
         /// </value>
         public string ExpectedDsmPath { get; private set; }
+
+        /// <summary>
+        /// Gets or sets the user-provided TWAIN DSM dll path.
+        /// </summary>
+        /// <value>
+        /// The DSM path.
+        /// </value>
+        public string NewDsmPath
+        {
+            get { return newDsmPath; }
+            set { newDsmPath = value; }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this library is supported on current OS.

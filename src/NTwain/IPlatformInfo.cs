@@ -24,6 +24,14 @@ namespace NTwain
         string ExpectedDsmPath { get; }
 
         /// <summary>
+        /// Gets or sets the twaindsm.dll path.
+        /// </summary>
+        /// <value>
+        /// The DSM path.
+        /// </value>
+        string NewDsmPath { get; set; }
+
+        /// <summary>
         /// Gets a value indicating whether the application is running in 64-bit.
         /// </summary>
         /// <value>
